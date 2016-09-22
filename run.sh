@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-#<backend hostname> <ssh port> <priority> <backup 0 or 1>
+
+debug="0"
 debug_separator="------------------------------------------------------------------------------------------------------------"
+#<backend hostname> <ssh port> <priority> <backup 0 or 1>
 host_0=("back1" "2222" "1" "1")
 host_1=("back3" "2222" "2" "0")
 host_2=("back4" "2222" "3" "0")
@@ -21,8 +23,6 @@ FRONTARRAY=(
 
 frscrpath="/scripts/nginx-weight/"
 scriptname="nginx-change-weight.sh"
-#configpath="/etc/nginx/nginx.conf"
-#configpath="/home/redacid/nginx.conf"
 
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
@@ -32,11 +32,14 @@ do
   bprio=${!BACKARRAY[i]:2:1}
   bbackup=${!BACKARRAY[i]:3:1}
 
-  echo ${debug_separator}
-  echo "${bhost}:${bport} ${bprio} ${bbackup}"
-
   cpu_load=`bash ./get-load.sh ${bhost}`
-  echo "cpu_load=${cpu_load}"
+
+  if [ ${debug} -eq 1 ]; then
+    echo ${debug_separator}
+    echo "${bhost}:${bport} ${bprio} ${bbackup}"
+    echo "cpu_load=${cpu_load}"
+  fi
+
   let "weight = 100-cpu_load"
 
         frcount=${#FRONTARRAY[@]}
@@ -45,7 +48,11 @@ do
             fhost=${!FRONTARRAY[j]:0:1}
             fport=${!FRONTARRAY[j]:1:1}
             fconfig=${!FRONTARRAY[j]:2:1}
-            echo "      ${fhost}:${fport}"
+
+            if [ ${debug} -eq 1 ]; then
+                echo "      ${fhost}:${fport}"
+            fi
+
             ssh ${fhost} -p ${fport} "mkdir -p ${frscrpath}"
             scp -P ${fport} ./${scriptname} ${fhost}:${frscrpath}
             ssh ${fhost} -p ${fport} "chmod +x ${frscrpath}${scriptname}"
