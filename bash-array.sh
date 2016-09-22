@@ -2,8 +2,8 @@
 #<hostname> <ssh port> <priority> <backup 0 or 1>
 
 host_0=("back1" "2222" "1" "1")
-host_1=("back2" "2222" "2" "0")
-host_2=("back3" "2222" "3" "0")
+host_1=("back3" "2222" "2" "0")
+host_2=("back4" "2222" "3" "0")
 
 BACKARRAY=(
   host_0[@]
