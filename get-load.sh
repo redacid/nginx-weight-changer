@@ -18,11 +18,11 @@ mib_percent_cpu_idle='.1.3.6.1.4.1.2021.11.11.0'
 
 val_cpu_sys=`snmpwalk -v2c -c public $host $mib_percent_cpu_sys | cut -d " " -f 4`
 val_cpu_usr=`snmpwalk -v2c -c public $host $mib_percent_cpu_usr | cut -d " " -f 4`
-let "total_cpu_load = val_cpu_sys1+val_cpu_usr"
+let "total_cpu_load = val_cpu_sys+val_cpu_usr"
 echo $total_cpu_load
 
 if [ $debug -eq 1 ]; then
-    echo "host:$host $total_cpu"
+    echo "host:$host $total_cpu_load"
 fi
 
 
