@@ -34,7 +34,8 @@ do
   echo ${debug_separator}
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
 
-  bash ./get-load.sh ${bhost}
+  cpu_load=`bash ./get-load.sh ${bhost}`
+  echo "cpu_load=${cpu_load}"
 
         frcount=${#FRONTARRAY[@]}
         for ((j=0; j<$frcount; j++))
