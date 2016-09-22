@@ -14,10 +14,10 @@ BACKARRAY=(
 front_0=("fr1" "22")
 front_1=("fr2" "22")
 
-FRONTARRAY=(
-  front_0[@]
-  front_1[@]
-)
+#FRONTARRAY=(
+#  front_0[@]
+#  front_1[@]
+#)
 
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
@@ -28,12 +28,12 @@ do
   bbackup=${!BACKARRAY[i]:3:1}
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
-       frcount=${#FRONTARRAY[@]}
-        for ((i=0; i<$frcount; i++))
-        do
-              fhost=${!FRONTARRAY[i]:0:1}
-              fport=${!FRONTARRAY[i]:1:1}
-              echo "---${fhost}:${fport}"
-        done
+#        frcount=${#FRONTARRAY[@]}
+#        for ((i=0; i<$frcount; i++))
+#        do
+#              fhost=${!FRONTARRAY[i]:0:1}
+#              fport=${!FRONTARRAY[i]:1:1}
+#              echo "---${fhost}:${fport}"
+#        done
 
 done
