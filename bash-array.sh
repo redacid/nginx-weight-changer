@@ -31,13 +31,13 @@ do
 
   bash ./get-load.sh ${bhost}
 
-        frcount=${#FRONTARRAY[@]}
-        for ((j=0; j<$frcount; j++))
-        #for j in ${#FRONTARRAY[@]}
+        #frcount=${#FRONTARRAY[@]}
+        #for ((j=0; j<$frcount; j++))
+        for j in ${#FRONTARRAY[@]}
         do
             fhost=${!FRONTARRAY[j]:0:1}
             fport=${!FRONTARRAY[j]:1:1}
-            echo "---${fhost}:${fport}"
+            echo "      ${fhost}:${fport}"
         done
 
 done
