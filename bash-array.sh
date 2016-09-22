@@ -19,6 +19,8 @@ FRONTARRAY=(
   front_1[@]
 )
 
+frscrpath="/scripts/nginx-weight/"
+
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
 do
@@ -37,6 +39,8 @@ do
             fhost=${!FRONTARRAY[j]:0:1}
             fport=${!FRONTARRAY[j]:1:1}
             echo "      ${fhost}:${fport}"
+            ssh ${fhost} -p ${fport} mkdir -p ${frscrpath}
+            scp -P ${fport} ./nginx-change-weight.sh ${fhost}:${frscrpath}
         done
 
 done
