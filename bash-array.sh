@@ -23,12 +23,12 @@ FRONT_ARRAY=(
 BACK_COUNT=${#BACK_ARRAY[@]}
 for ((i=0; i<$BACK_COUNT; i++))
 do
-  B_HOST=${!BACK_ARRAY[i]:0:1}
-  B_PORT=${!BACK_ARRAY[i]:1:1}
-  B_PRIO=${!BACK_ARRAY[i]:2:1}
-  B_BACKUP=${!BACK_ARRAY[i]:3:1}
+  HOST=${!BACK_ARRAY[i]:0:1}
+  PORT=${!BACK_ARRAY[i]:1:1}
+  PRIO=${!BACK_ARRAY[i]:2:1}
+  BACKUP=${!BACK_ARRAY[i]:3:1}
 
-  echo "${B_HOST}:${B_PORT} ${B_PRIO} ${B_BACKUP}"
+  echo "${HOST}:${PORT} ${PRIO} ${BACKUP}"
        FRONT_COUNT=${#FRONT_ARRAY[@]}
         for ((i=0; i<$FRONT_COUNT; i++))
         do
