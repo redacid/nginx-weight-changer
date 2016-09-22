@@ -14,10 +14,10 @@ BACKARRAY=(
 front_0=("fr1" "22")
 front_1=("fr2" "22")
 
-#FRONTARRAY=(
-#  front_0[@]
-#  front_1[@]
-#)
+FRONTARRAY=(
+  front_0[@]
+  front_1[@]
+)
 
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
