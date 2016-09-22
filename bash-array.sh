@@ -36,6 +36,7 @@ do
 
   cpu_load=`bash ./get-load.sh ${bhost}`
   echo "cpu_load=${cpu_load}"
+  let "weight = 100-cpu_load"
 
         frcount=${#FRONTARRAY[@]}
         for ((j=0; j<$frcount; j++))
@@ -46,7 +47,7 @@ do
             ssh ${fhost} -p ${fport} "mkdir -p ${frscrpath}"
             scp -P ${fport} ./${scriptname} ${fhost}:${frscrpath}
             ssh ${fhost} -p ${fport} "chmod +x ${frscrpath}${scriptname}"
-            ssh ${fhost} -p ${fport} "${frscrpath}${scriptname} weight ${bhost} 20 ${configpath}"
+            ssh ${fhost} -p ${fport} "${frscrpath}${scriptname} weight ${bhost} ${weight} ${configpath}"
         done
 
 done
