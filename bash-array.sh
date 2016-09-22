@@ -28,14 +28,13 @@ do
   bbackup=${!BACKARRAY[i]:3:1}
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
-        #frcount=${#FRONTARRAY[@]}
-        #for ((i=0; i<$frcount; i++))
-        for j in ${#FRONTARRAY[@]}
+        frcount=${#FRONTARRAY[@]}
+        for ((j=0; i<$frcount; j++))
+        #for j in ${#FRONTARRAY[@]}
         do
-        echo "1"
-#              fhost=${!FRONTARRAY[i]:0:1}
-#              fport=${!FRONTARRAY[i]:1:1}
-#              echo "---${fhost}:${fport}"
+            fhost=${!FRONTARRAY[j]:0:1}
+            fport=${!FRONTARRAY[j]:1:1}
+            echo "---${fhost}:${fport}"
         done
 
 done
