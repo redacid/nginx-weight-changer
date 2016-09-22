@@ -10,7 +10,7 @@ BACKARRAY=(
   host_1[@]
   host_2[@]
 )
-#<frontend hostname> <port> <nginx config file>
+#<frontend hostname> <ssh port> <nginx config file>
 front_0=("fr1" "22" "/home/redacid/nginx.conf")
 front_1=("fr2" "22" "/home/redacid/nginx.conf")
 
@@ -51,5 +51,4 @@ do
             ssh ${fhost} -p ${fport} "chmod +x ${frscrpath}${scriptname}"
             ssh ${fhost} -p ${fport} "${frscrpath}${scriptname} weight ${bhost} ${weight} ${fconfig}"
         done
-
 done
