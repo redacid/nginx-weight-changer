@@ -6,8 +6,8 @@ weight="$3"
 file="$4"
 debug="0"
 debug_separator="------------------------------------------------------------------------------------------------------------"
-#comment=`nslookup $host | grep "name =" | cut -d"=" -f2`
-comment=`host ${host} | cut -d " " -f5`
+comment=`nslookup $host | grep "name =" | cut -d"=" -f2`
+#comment=`host ${host} | cut -d " " -f5`
 
 if [ $# -lt 2 ]; then
     echo usage $0 command host weight
