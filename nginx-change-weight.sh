@@ -26,8 +26,8 @@ case "$1" in
             regexp='(server)(\s+)('${host}')(\s+)(weight)(=)(\d+)(\s+)(max_fails)(=)(\d+)(\s+)(fail_timeout)(=)(5)(;)'
             line=`cat ${file} | grep -P ${regexp} | grep ${host} | sed 's/^[ \t]*//' | grep -v ^"#" |head -n 1`
             newline="server $host weight=$weight max_fails=1 fail_timeout=5; #$comment"
-            #sed -i -e "/^[ \t]*#/!s/$line/$newline/g" ${file}
-            sed -e "/^[ \t]*#/!s/$line/$newline/g" ${file}
+            sed -i -e "/^[ \t]*#/!s/$line/$newline/g" ${file}
+            #sed -e "/^[ \t]*#/!s/$line/$newline/g" ${file}
 
         if [ ${debug} -eq 1 ]; then
             echo ${debug_separator}
