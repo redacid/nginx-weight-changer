@@ -50,7 +50,7 @@ do
             fconfig=${!FRONTARRAY[j]:2:1}
 
             if [ ${debug} -eq 1 ]; then
-                echo "      ${fhost}:${fport}"
+                echo "~~~~~~~~~~${fhost}:${fport}"
             fi
 
             ssh ${fhost} -p ${fport} "mkdir -p ${frscrpath}"
