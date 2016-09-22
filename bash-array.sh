@@ -28,6 +28,9 @@ do
   bbackup=${!BACKARRAY[i]:3:1}
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
+
+  bash ./get-load.sh ${bhost}
+
         frcount=${#FRONTARRAY[@]}
         for ((j=0; j<$frcount; j++))
         #for j in ${#FRONTARRAY[@]}
