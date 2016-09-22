@@ -22,10 +22,10 @@ FRONTARRAY=(
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
 do
-  bhost=${!BACK_ARRAY[i]:0:1}
-  bport=${!BACK_ARRAY[i]:1:1}
-  bprio=${!BACK_ARRAY[i]:2:1}
-  bbackup=${!BACK_ARRAY[i]:3:1}
+  bhost=${!BACKARRAY[i]:0:1}
+  bport=${!BACKARRAY[i]:1:1}
+  bprio=${!BACKARRAY[i]:2:1}
+  bbackup=${!BACKARRAY[i]:3:1}
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
        frcount=${#FRONTARRAY[@]}
