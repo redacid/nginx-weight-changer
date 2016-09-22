@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #<hostname> <ssh port> <priority> <backup 0 or 1>
-
+debug_separator="------------------------------------------------------------------------------------------------------------"
 host_0=("back1" "2222" "1" "1")
 host_1=("back3" "2222" "2" "0")
 host_2=("back4" "2222" "3" "0")
@@ -31,7 +31,7 @@ do
   bport=${!BACKARRAY[i]:1:1}
   bprio=${!BACKARRAY[i]:2:1}
   bbackup=${!BACKARRAY[i]:3:1}
-
+  echo ${debug_separator}
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
 
   bash ./get-load.sh ${bhost}
