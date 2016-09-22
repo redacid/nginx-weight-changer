@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Sdebug="0"
+debug="0"
 host=$1
 
 if [ $# -lt 1 ]; then
