@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-debug="0"
+debug="1"
 debug_separator="------------------------------------------------------------------------------------------------------------"
 #<backend hostname> <ssh port> <priority> <backup 0 or 1>
 host_0=("back1" "2222" "1" "1")
