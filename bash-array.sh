@@ -29,7 +29,7 @@ do
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
         frcount=${#FRONTARRAY[@]}
-        for ((j=0; i<$frcount; j++))
+        for ((j=0; j<$frcount; j++))
         #for j in ${#FRONTARRAY[@]}
         do
             fhost=${!FRONTARRAY[j]:0:1}
