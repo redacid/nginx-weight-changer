@@ -29,11 +29,11 @@ do
 
   echo "${bhost}:${bport} ${bprio} ${bbackup}"
         frcount=${#FRONTARRAY[@]}
-#        for ((i=0; i<$frcount; i++))
-#        do
+        for ((i=0; i<$frcount; i++))
+        do
 #              fhost=${!FRONTARRAY[i]:0:1}
 #              fport=${!FRONTARRAY[i]:1:1}
 #              echo "---${fhost}:${fport}"
-#        done
+        done
 
 done
