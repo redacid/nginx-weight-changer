@@ -34,8 +34,7 @@ do
         do
               F_HOST=${!FRONT_ARRAY[i]:0:1}
               F_PORT=${!FRONT_ARRAY[i]:1:1}
-              echo "---${F_HOST}:${F_PORT}
-
+              echo "---${F_HOST}:${F_PORT}"
         done
 
 done
