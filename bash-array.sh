@@ -20,7 +20,9 @@ FRONTARRAY=(
 )
 
 frscrpath="/scripts/nginx-weight/"
-scriptname="./nginx-change-weight.sh"
+scriptname="nginx-change-weight.sh"
+#configpath="/etc/nginx/nginx.conf"
+configpath="/home/redacid/nginx.conf"
 
 bcount=${#BACKARRAY[@]}
 for ((i=0; i<$bcount; i++))
@@ -41,7 +43,9 @@ do
             fport=${!FRONTARRAY[j]:1:1}
             echo "      ${fhost}:${fport}"
             ssh ${fhost} -p ${fport} "mkdir -p ${frscrpath}"
-            scp -P ${fport} ${scriptname} ${fhost}:${frscrpath}
+            scp -P ${fport} ./${scriptname} ${fhost}:${frscrpath}
+            ssh ${fhost} -p ${fport} "chmod +x ${frscrpath}${scriptname}"
+            ssh ${fhost} -p ${fport} "${frscrpath}${scriptname} weight ${bhost} 20 ${configpath}"
         done
 
 done
