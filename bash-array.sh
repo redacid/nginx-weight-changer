@@ -31,6 +31,7 @@ do
         frcount=${#FRONTARRAY[@]}
         for ((i=0; i<$frcount; i++))
         do
+        echo "1"
 #              fhost=${!FRONTARRAY[i]:0:1}
 #              fport=${!FRONTARRAY[i]:1:1}
 #              echo "---${fhost}:${fport}"
