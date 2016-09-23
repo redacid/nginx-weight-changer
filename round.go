@@ -31,7 +31,7 @@ func main() {
 	flag.Parse()
 	switch {
 	default:
-		fmt.Printf("%s", "Не указана или неверная комманда введите -h для получения помощи")
+		fmt.Printf("%s", "Не указана или неверная комманда введите -h для получения помощи\n")
 	case command == "round":
 		fmt.Printf("%d", round(floatForRound))
 	}
