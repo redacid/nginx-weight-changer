@@ -25,5 +25,5 @@ else
 fi
 }
 
-size="66,7"
+size="$1"
 round $size
